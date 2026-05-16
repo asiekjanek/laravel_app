@@ -24,3 +24,13 @@ Route::get('/uzytkownik/{user}', function (User $user) {
 });
 
 Route::post('/user/{user}/update', [UserController::class, 'update'])->name('user.update');
+
+use App\Http\Controllers\PostController;
+
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
+
+Route::get('/posts/{id}/edit', [PostController::class, 'edit'])->name('posts.edit');
+Route::put('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
+
+Route::post('/contact', [PostController::class, 'contact'])->name('contact.send');
